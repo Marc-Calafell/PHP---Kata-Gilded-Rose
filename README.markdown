@@ -1,3 +1,26 @@
+## Installation
+Clone the repo in a clean folder:
+``` bash
+$ git clone https://github.com/Marc-Calafell/PHP---Kata-Gilded-Rose
+```
+
+Enter to the directory:
+``` bash
+$ cd PHP---Kata-Gilded-Rose
+```
+
+Make a composer install:
+``` bash
+$ composer install
+```
+Pass the tests
+``` bash
+$ phpspec run
+```
+
+
+
+
 DESCRIPCION DE LA KATA
 ======================
 
