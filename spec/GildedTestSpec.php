@@ -83,30 +83,101 @@ class GildedTestSpec extends ObjectBehavior
     }
 
 /*The Sulfuras Item*/
-function it_Sulfuras_before_sell_date()
+    function it_Sulfuras_before_sell_date()
 {
     $this->beConstructedThroughOf('Sulfuras, Hand of Ragnaros',12,8);
     $this->tick();
     $this->quality->shouldBe(12);
     $this->sellIn->shouldBe(8);
 }
-function it_Sulfuras_on_sell_date()
+    function it_Sulfuras_on_sell_date()
 {
     $this->beConstructedThroughOf('Sulfuras, Hand of Ragnaros',12,0);
     $this->tick();
     $this->quality->shouldBe(12);
     $this->sellIn->shouldBe(0);
 }
-function it_Sulfuras_after_sell_date()
-{
+    function it_Sulfuras_after_sell_date() {
     $this->beConstructedThroughOf('Sulfuras, Hand of Ragnaros',12,-1);
     $this->tick();
     $this->quality->shouldBe(12);
     $this->sellIn->shouldBe(-1);
 }
 
-
 /*THe BackStage Passes Item*/
+
+    function it_Backstage_pass_before_sell_date_1()
+    {
+        $this->beConstructedThroughOf('Backstage passes to a TAFKAL80ETC concert',10,11);
+        $this->tick();
+        $this->quality->shouldBe(11);
+        $this->sellIn->shouldBe(10);
+    }
+    function it_Backstage_pass_before_sell_date_2()
+    {
+        $this->beConstructedThroughOf('Backstage passes to a TAFKAL80ETC concert',10,10);
+        $this->tick();
+        $this->quality->shouldBe(12);
+        $this->sellIn->shouldBe(9);
+    }
+
+
+    function it_Backstage_pass_one_day_to_sell()
+    {
+        $this->beConstructedThroughOf('Backstage passes to a TAFKAL80ETC concert',10,1);
+        $this->tick();
+        $this->quality->shouldBe(13);
+        $this->sellIn->shouldBe(0);
+    }
+    /**
+     * Check it updates Backstage pass items on the sell date
+     */
+    function it_Backstage_pass_on_sell_date()
+    {
+        $this->beConstructedThroughOf('Backstage passes to a TAFKAL80ETC concert',50,0);
+        $this->tick();
+        $this->quality->shouldBe(0);
+        $this->sellIn->shouldBe(-1);
+    }
+    /**
+     * Check it updates Backstage pass items after the sell date
+     */
+    function it_Backstage_pass_after_sell_date() {
+        $this->beConstructedThroughOf('Backstage passes to a TAFKAL80ETC concert',10,-1);
+        $this->tick();
+        $this->quality->shouldBe(0);
+        $this->sellIn->shouldBe(-2);
+    }
+/*The Conjured Items*/
+
+    function it_Conjured_items_before_sell_date()
+    {
+        $this->beConstructedThroughOf('Conjured laravel',7,7);
+        $this->tick();
+        $this->quality->shouldBe(6);
+        $this->sellIn->shouldBe(6);
+    }
+    function it_Conjured_items_at_zero_quality()
+    {
+        $this->beConstructedThroughOf('Conjured laravel',0,6);
+        $this->tick();
+        $this->quality->shouldBe(0);
+        $this->sellIn->shouldBe(5);
+    }
+    function it_Conjured_items_on_sell_date()
+    {
+        $this->beConstructedThroughOf('Conjured laravel',10,0);
+        $this->tick();
+        $this->quality->shouldBe(8);
+        $this->sellIn->shouldBe(-1);
+    }
+
+    function it_Conjured_items_after_sell_date() {
+        $this->beConstructedThroughOf('Conjured laravel',10,-1);
+        $this->tick();
+        $this->quality->shouldBe(8);
+        $this->sellIn->shouldBe(-2);
+    }
 
 
 
