@@ -1,0 +1,11 @@
+{
+    "require-dev": {
+        "crysalead/kahlan": "^1.2",
+        "phpspec/phpspec": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src"
+        }
+    }
+}
