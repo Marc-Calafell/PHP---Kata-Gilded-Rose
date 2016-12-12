@@ -18,10 +18,9 @@ class GildedTest
     public function tick() {
         if ($this->name != 'Aged Brie' and $this->name != 'Backstage passes to a TAFKAL80ETC concert') {
             if ($this->quality > 0) {
-                if ($this->name != 'Sulfuras, Hand of Ragnaros' && $this->name != 'Conjured Mana Cake') {
+                if ($this->name != 'Sulfuras, Hand of Ragnaros') {
                     $this->quality = $this->quality - 1;
-                }
-                if ($this->name == 'Conjured Mana Cake') {
+                }elseif ($this->name == 'Conjured laravel') {
                     $this->quality = $this->quality - 2;
                 }
             }
@@ -49,10 +48,9 @@ class GildedTest
             if ($this->name != 'Aged Brie') {
                 if ($this->name != 'Backstage passes to a TAFKAL80ETC concert') {
                     if ($this->quality > 0) {
-                        if ($this->name != 'Sulfuras, Hand of Ragnaros' && $this->name != 'Conjured Mana Cake') {
+                        if ($this->name != 'Sulfuras, Hand of Ragnaros') {
                             $this->quality = $this->quality - 1;
-                        }
-                        if ($this->name == 'Conjured Mana Cake') {
+                        } elseif ($this->name == 'Conjured Laravel') {
                             $this->quality = $this->quality - 2;
                         }
                     }

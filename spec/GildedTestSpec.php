@@ -82,15 +82,32 @@ class GildedTestSpec extends ObjectBehavior
         $this->sellIn->shouldBe(-1);
     }
 
-
-
 /*The Sulfuras Item*/
+function it_Sulfuras_before_sell_date()
+{
+    $this->beConstructedThroughOf('Sulfuras, Hand of Ragnaros',12,8);
+    $this->tick();
+    $this->quality->shouldBe(12);
+    $this->sellIn->shouldBe(8);
+}
+function it_Sulfuras_on_sell_date()
+{
+    $this->beConstructedThroughOf('Sulfuras, Hand of Ragnaros',12,0);
+    $this->tick();
+    $this->quality->shouldBe(12);
+    $this->sellIn->shouldBe(0);
+}
+function it_Sulfuras_after_sell_date()
+{
+    $this->beConstructedThroughOf('Sulfuras, Hand of Ragnaros',12,-1);
+    $this->tick();
+    $this->quality->shouldBe(12);
+    $this->sellIn->shouldBe(-1);
+}
+
 
 /*THe BackStage Passes Item*/
 
-/*The Conjured Items*/
-
-/**/
 
 
 }
